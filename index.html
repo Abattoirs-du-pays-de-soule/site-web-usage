@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site Web Usagé</title>
+  <meta name="description" content="Squelette de site vitrine moderne pour le projet ‘Site Web Usagé’. 100% HTML/CSS/JS, prêt pour GitHub Pages ou tout hébergement statique." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230090ff'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='48' fill='white' font-family='Arial, Helvetica, sans-serif'%3ES%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: #12141a;
+      --text: #e6e6e6;
+      --muted: #b8c1cc;
+      --brand: #0ea5e9;
+      --brand-2: #22d3ee;
+      --ok: #10b981;
+      --warn: #f59e0b;
+      --err: #ef4444;
+      --shadow: 0 10px 25px rgba(0,0,0,.25);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(14,165,233,.25), transparent 60%),
+                  radial-gradient(1000px 500px at 120% -20%, rgba(34,211,238,.18), transparent 60%),
+                  linear-gradient(180deg, #0b0c10, #0b0c10 120px, #0b0c10 100%);
+      line-height: 1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(11,12,16,.85), rgba(11,12,16,.6));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
+    .logo-badge{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:var(--shadow)}
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);padding:10px 16px;border-radius:12px;background:rgba(255,255,255,.02);transition:.2s ease;cursor:pointer}
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.06)}
+    .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#081017;font-weight:700}
+    main{display:grid;gap:56px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding-top:24px}
+    .hero h1{font-size:clamp(32px,6vw,54px);line-height:1.1;margin:0}
+    .lead{font-size:clamp(16px,2.4vw,20px);color:var(--muted);margin:14px 0 24px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .chip{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px dashed rgba(255,255,255,.18);border-radius:999px;font-size:14px;color:var(--muted)}
+    .section{padding:8px 0}
+    .section h2{font-size:clamp(22px,3.6vw,30px);margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);display:grid;gap:10px}
+    .card h3{margin:0;font-size:18px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    form{display:grid;gap:12px}
+    label{font-size:14px;color:var(--muted)}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.25);color:var(--text)}
+    input:focus, textarea:focus{outline:2px solid var(--brand)}
+    footer{border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">
+        <span class="logo-badge">SU</span>
+        <span>Site Web Usagé</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#fonctionnalites" class="btn" aria-label="Aller à Fonctionnalités">Fonctionnalités</a>
+        <a href="#apropos" class="btn" aria-label="Aller à À propos">À propos</a>
+        <a href="#contact" class="btn primary" aria-label="Aller à Contact">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="chip" aria-hidden="true">🚀 Projet prêt à déployer</div>
+        <h1 id="hero-title">Un squelette moderne pour lancer <em>Site Web Usagé</em></h1>
+        <p class="lead">Ce modèle 100% statique (HTML/CSS/JS) est idéal pour démarrer vite : performant, accessible, et compatible avec GitHub Pages, Netlify, Vercel ou tout hébergeur.</p>
+        <div class="cta">
+          <a class="btn primary" href="#fonctionnalites">Découvrir</a>
+          <a class="btn" href="#contact">Nous contacter</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Résumé du projet">
+        <strong>Inclus dans ce modèle :</strong>
+        <div class="hero-grid">
+          <div class="panel">
+            <ul>
+              <li>⚡ Page d’accueil élégante</li>
+              <li>📱 Responsive par défaut</li>
+              <li>♿ Bonnes pratiques d’accessibilité</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <ul>
+              <li>🧭 Navigation ancrée</li>
+              <li>🧩 Cartes "fonctionnalités"</li>
+              <li>✉️ Formulaire de contact</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="fonctionnalites" class="section" aria-labelledby="features-title">
+      <h2 id="features-title">Fonctionnalités clés</h2>
+      <p class="muted">Adaptez les blocs ci‑dessous à votre activité (plateforme de petites annonces, boutique de seconde main, vitrine, etc.).</p>
+      <div class="cards">
+        <article class="card" aria-labelledby="c1">
+          <h3 id="c1">Design épuré</h3>
+          <p>Mise en page soignée, typographie lisible et composants réutilisables pour une expérience agréable.</p>
+        </article>
+        <article class="card" aria-labelledby="c2">
+          <h3 id="c2">Performance</h3>
+          <p>Sans dépendances lourdes : charge rapide, idéal SEO et compatibilité large.</p>
+        </article>
+        <article class="card" aria-labelledby="c3">
+          <h3 id="c3">Prêt pour l’hébergement statique</h3>
+          <p>Fonctionne tel‑quel sur GitHub Pages, Netlify, Vercel, OVH, o2switch, etc.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="apropos" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">À propos du projet</h2>
+      <div class="panel">
+        <p>
+          <strong>Site Web Usagé</strong> est un point de départ minimaliste. Modifiez le contenu, ajoutez vos pages, et branchez‑le à un back‑end plus tard si nécessaire.
+        </p>
+        <details>
+          <summary>Comment l’adapter rapidement ?</summary>
+          <ol>
+            <li>Remplacez les textes et le titre dans &lt;head&gt;.</li>
+            <li>Ajoutez vos sections (Produits, Annonces, Blog…).</li>
+            <li>Connectez le formulaire à votre outil (Formspree, Netlify Forms…).</li>
+            <li>Déployez : poussez le fichier <code>index.html</code> sur votre hébergeur.</li>
+          </ol>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <form id="contactForm" class="panel" novalidate>
+        <div>
+          <label for="name">Nom</label>
+          <input id="name" name="name" placeholder="Votre nom" required />
+        </div>
+        <div>
+          <label for="email">E‑mail</label>
+          <input id="email" name="email" type="email" placeholder="vous@exemple.fr" required />
+        </div>
+        <div>
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" placeholder="Votre message…" required></textarea>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <button class="btn primary" type="submit">Envoyer</button>
+          <span id="status" class="muted" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <small class="muted">© <span id="year"></span> Site Web Usagé</small>
+      <a class="btn" href="#top" aria-label="Retour en haut">↑ Haut de page</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (!data.name || !data.email || !data.message) {
+        status.textContent = 'Merci de compléter tous les champs.';
+        status.style.color = 'var(--warn)';
+        return;
+      }
+      const emailOk = /.+@.+\..+/.test(data.email);
+      if (!emailOk) {
+        status.textContent = 'Adresse e‑mail invalide.';
+        status.style.color = 'var(--err)';
+        return;
+      }
+      status.textContent = 'Message prêt à être envoyé (démo). Connectez un service pour l’envoi réel.';
+      status.style.color = 'var(--ok)';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
